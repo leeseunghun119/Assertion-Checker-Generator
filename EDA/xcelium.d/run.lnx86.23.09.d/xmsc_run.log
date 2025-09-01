@@ -1,0 +1,21 @@
+$CDSROOT = /xcelium23.09
+$TESTDIR = /home/runner
+
+TOOL:	xmsc	23.09-s001
+xmsc cc parameters: 
+	$CDSROOT/tools/cdsgcc/gcc/9.3/bin/gcc
+	-I$CDSROOT/tools/include
+	-I$CDSROOT/tools/inca/include
+	-pipe 
+	-DXMSC
+	-DNCSC
+	-D_GLIBCXX_USE_CXX11_ABI=1 -c
+	-x c -m32  -Wall 
+
+xmsc: compiling $TESTDIR/blur_3x3filter.c
+
+$TESTDIR/blur_3x3filter.c:8: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+    8 | #pragma warning(disable:4996)
+      | 
+
+building library run.so

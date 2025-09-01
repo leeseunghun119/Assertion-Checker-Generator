@@ -1,0 +1,612 @@
+xrun: 23.09-s001: (c) Copyright 1995-2023 Cadence Design Systems, Inc.
+TOOL:	xrun	23.09-s001: Started on Aug 27, 2025 at 22:19:29 EDT
+xrun
+	-Q
+	-unbuffered
+	-timescale 1ns/1ns
+	-sysv
+	blur_3x3filter.c
+	-access +rw
+	-uvmnocdnsextra
+	-uvmhome /xcelium23.09/tools//methodology/UVM/CDNS-1.1d/sv
+	/xcelium23.09/tools//methodology/UVM/CDNS-1.1d/sv/src/uvm_macros.svh
+	design.sv
+	testbench.sv
+    fnRead("image.pgm", IMG_ORG);
+         |
+xmvlog: *W,FUNTSK (hw_sb.sv,127|9): function called as a task without void'().
+    fnBlur(IMG_ORG, IMG_BLUR, filter, filter_wr, 0, 1, 0, 1, 2, 1, 2, 4, 2, 1, 2, 1);
+         |
+xmvlog: *W,FUNTSK (hw_sb.sv,128|9): function called as a task without void'().
+    fnWrite("blur_image.pgm", IMG_BLUR);
+          |
+xmvlog: *W,FUNTSK (hw_sb.sv,129|10): function called as a task without void'().
+    rnd_item.sprint();
+                  |
+xmvlog: *W,FUNTSK (hw_vseq_lib.sv,72|18): function called as a task without void'().
+$CDSROOT = /xcelium23.09
+$TESTDIR = /home/runner
+
+TOOL:	xmsc	23.09-s001
+xmsc cc parameters: 
+	$CDSROOT/tools/cdsgcc/gcc/9.3/bin/gcc
+	-I$CDSROOT/tools/include
+	-I$CDSROOT/tools/inca/include
+	-pipe 
+	-DXMSC
+	-DNCSC
+	-D_GLIBCXX_USE_CXX11_ABI=1 -c
+	-x c -m32  -Wall 
+
+xmsc: compiling $TESTDIR/blur_3x3filter.c
+
+$TESTDIR/blur_3x3filter.c:8: warning: ignoring #pragma warning  [-Wunknown-pragmas]
+    8 | #pragma warning(disable:4996)
+      | 
+
+building library run.so
+
+  IP_BLUR_SCALER_TOP dut();
+                       |
+xmelab: *W,CUVWSP (./testbench.sv,24|23): 5 output ports were not connected:
+xmelab: (./IP_BLUR_SCALER_TOP.v,13): O_VSYNC
+xmelab: (./IP_BLUR_SCALER_TOP.v,14): O_HSYNC
+xmelab: (./IP_BLUR_SCALER_TOP.v,15): O_DEN
+xmelab: (./IP_BLUR_SCALER_TOP.v,16): O_DATA
+xmelab: (./IP_BLUR_SCALER_TOP.v,25): o_PRDATA
+
+  IP_BLUR_SCALER_TOP dut();
+                       |
+xmelab: *W,CUVWSI (./testbench.sv,24|23): 13 input ports were not connected:
+xmelab: (./IP_BLUR_SCALER_TOP.v,6): I_CLK
+xmelab: (./IP_BLUR_SCALER_TOP.v,7): I_RSTN
+xmelab: (./IP_BLUR_SCALER_TOP.v,8): I_VSYNC
+xmelab: (./IP_BLUR_SCALER_TOP.v,9): I_HSYNC
+xmelab: (./IP_BLUR_SCALER_TOP.v,10): I_DEN
+xmelab: (./IP_BLUR_SCALER_TOP.v,11): I_DATA
+xmelab: (./IP_BLUR_SCALER_TOP.v,18): PRSTN
+xmelab: (./IP_BLUR_SCALER_TOP.v,19): PCLK
+xmelab: (./IP_BLUR_SCALER_TOP.v,20): i_PSEL
+xmelab: (./IP_BLUR_SCALER_TOP.v,21): i_PEN
+xmelab: (./IP_BLUR_SCALER_TOP.v,22): i_PWRITE
+xmelab: (./IP_BLUR_SCALER_TOP.v,23): i_PADDR
+xmelab: (./IP_BLUR_SCALER_TOP.v,24): i_PWDATA
+
+	Top level design units:
+		uvm_pkg
+		hw_pkg
+		tb_top
+Loading snapshot worklib.tb_top:sv .................... Done
+SVSEED default: 1
+xcelium> source /xcelium23.09/tools/xcelium/files/xmsimrc
+xcelium> source /xcelium23.09/tools//methodology/UVM/CDNS-1.1d/sv/files/tcl/uvm_sim.tcl
+xcelium> run
+----------------------------------------------------------------
+CDNS-UVM-1.1d (23.09-s001)
+(C) 2007-2013 Mentor Graphics Corporation
+(C) 2007-2013 Cadence Design Systems, Inc.
+(C) 2006-2013 Synopsys, Inc.
+(C) 2011-2013 Cypress Semiconductor Corp.
+----------------------------------------------------------------
+
+  ***********       IMPORTANT RELEASE NOTES         ************
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_NO_DEPRECATED undefined.
+  See http://www.eda.org/svdb/view.php?id=3313 for more details.
+
+  You are using a version of the UVM library that has been compiled
+  with `UVM_OBJECT_MUST_HAVE_CONSTRUCTOR undefined.
+  See http://www.eda.org/svdb/view.php?id=3770 for more details.
+
+      (Specify +UVM_NO_RELNOTES to turn off this notice)
+
+                   0 [AW_VIDEO_SYNC_OUT] Assertion waiver initialized - all assertions OFF
+                   0 [AW_SFR] SFR checker assertion waiver initialized - assertions OFF
+                   0 [AW_VIDEO_SYNC] Video sync checker assertion waiver initialized
+                   0 [AW_RAM_CTRL] RAM control checker assertion waiver initialized
+                   0 [AW_SRAM1] SRAM checker assertion waiver initialized
+                   0 [AW_SRAM2] SRAM checker assertion waiver initialized
+                   0 [AW_SRAM3] SRAM checker assertion waiver initialized
+                   0 [AW_SRAM4] SRAM checker assertion waiver initialized
+                   0 [AW_MUX_OUTPUT] MUX output checker assertion waiver initialized
+====== Assertion Waiver Status ======
+aw_video_sync_out_enable : 1
+aw_sfr_enable            : 1
+aw_video_sync_enable     : 1
+aw_ram_ctrl_enable       : 1
+aw_sram1_enable          : 1
+aw_sram2_enable          : 1
+aw_sram3_enable          : 1
+aw_sram4_enable          : 1
+aw_mux_output_enable     : 1
+======================================
+                   0 [AW_GLOBAL] ========================================
+UVM_INFO @ 0: reporter [RNTST] Running test hw_basic_test_c...
+UVM_INFO tb.sv(20) @ 0: uvm_test_top.tb [uvm_test_top.tb] build_phase() starts..
+include_coverage not located
+  did you mean default_sequence?
+UVM_INFO hw_env.sv(18) @ 0: uvm_test_top.tb.hw_env [hw_env_c] build_phase() starts..
+UVM_INFO hw_agent.sv(18) @ 0: uvm_test_top.tb.hw_env.hw_agent [hw_agent_c] build_phase() starts..
+UVM_INFO hw_agent.sv(20) @ 0: uvm_test_top.tb.hw_env.hw_agent [hw_agent_c] is_active = UVM_ACTIVE
+UVM_INFO hw_driver.sv(12) @ 0: uvm_test_top.tb.hw_env.hw_agent.hw_driver [hw_driver_c] build_phase() starts..
+UVM_INFO hw_monitor.sv(19) @ 0: uvm_test_top.tb.hw_env.hw_agent.hw_monitor [hw_monitor_c] build_phase() starts..
+UVM_INFO hw_sequencer.sv(15) @ 0: uvm_test_top.tb.hw_env.hw_agent.hw_sequencer [hw_sequencer_c] build_phase() starts..
+include_coverage not located
+  did you mean default_sequence?
+UVM_INFO vseqr.sv(26) @ 0: uvm_test_top.tb.vseqr [vseqr_c] build_phase() starts..
+UVM_INFO tb.sv(37) @ 0: uvm_test_top.tb [tb_c] connect_phase() starts..
+UVM_INFO tb.sv(53) @ 0: uvm_test_top.tb [tb_c] connect_phase() ends..
+UVM_INFO @ 0: reporter [UVMTOP] UVM testbench topology:
+-----------------------------------------------------------------
+Name                         Type                     Size  Value
+-----------------------------------------------------------------
+uvm_test_top                 hw_basic_test_c          -     @2718
+  tb                         tb_c                     -     @2776
+    apb_driver1              apb_driver               -     @4482
+      rsp_port               uvm_analysis_port        -     @4580
+      seq_item_port          uvm_seq_item_pull_port   -     @4531
+    apb_seqr                 apb_sequencer            -     @3825
+      rsp_export             uvm_analysis_export      -     @3897
+      seq_item_export        uvm_seq_item_pull_imp    -     @4447
+      arbitration_queue      array                    0     -    
+      lock_queue             array                    0     -    
+      num_last_reqs          integral                 32    'd1  
+      num_last_rsps          integral                 32    'd1  
+    hw_env                   hw_env_c                 -     @3459
+      hw_agent               hw_agent_c               -     @4636
+        hw_driver            hw_driver_c              -     @5443
+          rsp_port           uvm_analysis_port        -     @5542
+          seq_item_port      uvm_seq_item_pull_port   -     @5493
+        hw_monitor           hw_monitor_c             -     @5522
+          in_data_port       uvm_analysis_port        -     @5621
+          out_data_port      uvm_analysis_port        -     @5670
+        hw_sequencer         hw_sequencer_c           -     @2805
+          rsp_export         uvm_analysis_export      -     @4862
+          seq_item_export    uvm_seq_item_pull_imp    -     @5412
+          arbitration_queue  array                    0     -    
+          lock_queue         array                    0     -    
+          num_last_reqs      integral                 32    'd1  
+          num_last_rsps      integral                 32    'd1  
+      hw_sb                  hw_sb_c                  -     @4666
+        in_hw_imp_port       uvm_analysis_imp_in_hw   -     @4720
+        out_hw_imp_port      uvm_analysis_imp_out_hw  -     @4771
+    vseqr                    vseqr_c                  -     @2751
+      rsp_export             uvm_analysis_export      -     @2878
+      seq_item_export        uvm_seq_item_pull_imp    -     @3428
+      arbitration_queue      array                    0     -    
+      lock_queue             array                    0     -    
+      num_last_reqs          integral                 32    'd1  
+      num_last_rsps          integral                 32    'd1  
+-----------------------------------------------------------------
+
+UVM_INFO hw_basic_test.sv(27) @ 0: uvm_test_top [hw_basic_test_c] run_phase() starts..
+UVM_INFO hw_basic_test.sv(35) @ 0: uvm_test_top [hw_basic_test_c] run_phase() ends..
+UVM_INFO hw_driver.sv(23) @ 0: uvm_test_top.tb.hw_env.hw_agent.hw_driver [hw_driver_c] run_phase() starts..
+UVM_INFO hw_seq_lib.sv(19) @ 0: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] Raise objection
+UVM_INFO hw_vseq_lib.sv(59) @ 0: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] pre_body() starts..
+UVM_INFO hw_vseq_lib.sv(64) @ 0: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] Start Test
+UVM_INFO hw_vseq_lib.sv(185) @ 40: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] System reset is released.
+                  40 [AW_GLOBAL] System ready - assertion waivers configured
+UVM_INFO hw_vseq_lib.sv(187) @ 230: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] Wait for 10 clock cycles.
+UVM_INFO hw_seq_item.sv(138) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ========================================================================
+UVM_INFO hw_seq_item.sv(139) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ========================================================================
+UVM_INFO hw_seq_item.sv(140) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(141) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] == VIDEO SYNC INFO ==
+UVM_INFO hw_seq_item.sv(142) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(143) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] FRAME = 2
+UVM_INFO hw_seq_item.sv(144) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] VTOTAL = 13
+UVM_INFO hw_seq_item.sv(145) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] HTOTAL = 25
+UVM_INFO hw_seq_item.sv(146) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] HSW = 5
+UVM_INFO hw_seq_item.sv(147) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] HBP = 5
+UVM_INFO hw_seq_item.sv(148) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] HACT = 10
+UVM_INFO hw_seq_item.sv(149) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] HFP = 5
+UVM_INFO hw_seq_item.sv(150) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] VSW = 1
+UVM_INFO hw_seq_item.sv(151) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] VBP = 1
+UVM_INFO hw_seq_item.sv(152) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] VACT = 10
+UVM_INFO hw_seq_item.sv(153) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] VFP = 1
+UVM_INFO hw_seq_item.sv(154) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(155) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ===== MODE INFO =====
+UVM_INFO hw_seq_item.sv(156) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(157) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] MODE = BLUR
+UVM_INFO hw_seq_item.sv(162) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(163) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] === FILTER WEIGHT ===
+UVM_INFO hw_seq_item.sv(164) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(165) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ||  1 2 1  ||
+UVM_INFO hw_seq_item.sv(166) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ||  2 4 2  ||
+UVM_INFO hw_seq_item.sv(167) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ||  1 2 1  ||
+UVM_INFO hw_seq_item.sv(168) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] =====================
+UVM_INFO hw_seq_item.sv(169) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ========================================================================
+UVM_INFO hw_seq_item.sv(170) @ 230: reporter@@hw_seq_item_c [hw_seq_item_c] ========================================================================
+Start sfr setting..
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 230: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg1.vsw' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 230: reporter [apb_adapter] [reg2bus] addr = 0, data = 10000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000000, DATA=00010000 at 270
+UVM_INFO apb_adapter.sv(38) @ 270: reporter [apb_adapter] [bus2reg] addr = 0, data = 10000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 270: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg1.hsw' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 270: reporter [apb_adapter] [reg2bus] addr = 0, data = 10005, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000000, DATA=00010005 at 330
+UVM_INFO apb_adapter.sv(38) @ 330: reporter [apb_adapter] [bus2reg] addr = 0, data = 10005, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 330: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg2.vbp' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 330: reporter [apb_adapter] [reg2bus] addr = 4, data = 10000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000004, DATA=00010000 at 390
+UVM_INFO apb_adapter.sv(38) @ 390: reporter [apb_adapter] [bus2reg] addr = 4, data = 10000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 390: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg2.hbp' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 390: reporter [apb_adapter] [reg2bus] addr = 4, data = 10005, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000004, DATA=00010005 at 450
+UVM_INFO apb_adapter.sv(38) @ 450: reporter [apb_adapter] [bus2reg] addr = 4, data = 10005, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 450: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg3.vact' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 450: reporter [apb_adapter] [reg2bus] addr = 8, data = a0000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000008, DATA=000a0000 at 510
+UVM_INFO apb_adapter.sv(38) @ 510: reporter [apb_adapter] [bus2reg] addr = 8, data = a0000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 510: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg3.hact' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 510: reporter [apb_adapter] [reg2bus] addr = 8, data = a000a, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000008, DATA=000a000a at 570
+UVM_INFO apb_adapter.sv(38) @ 570: reporter [apb_adapter] [bus2reg] addr = 8, data = a000a, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 570: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg4.vfp' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 570: reporter [apb_adapter] [reg2bus] addr = c, data = 10000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=0000000c, DATA=00010000 at 630
+UVM_INFO apb_adapter.sv(38) @ 630: reporter [apb_adapter] [bus2reg] addr = c, data = 10000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 630: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg4.hfp' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 630: reporter [apb_adapter] [reg2bus] addr = c, data = 10005, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=0000000c, DATA=00010005 at 690
+UVM_INFO apb_adapter.sv(38) @ 690: reporter [apb_adapter] [bus2reg] addr = c, data = 10005, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 690: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg5.weight_wr_mode' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 690: reporter [apb_adapter] [reg2bus] addr = 10, data = 0, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000010, DATA=00000000 at 750
+UVM_INFO apb_adapter.sv(38) @ 750: reporter [apb_adapter] [bus2reg] addr = 10, data = 0, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 750: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg5.mirror_mode' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 750: reporter [apb_adapter] [reg2bus] addr = 10, data = 0, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000010, DATA=00000000 at 810
+UVM_INFO apb_adapter.sv(38) @ 810: reporter [apb_adapter] [bus2reg] addr = 10, data = 0, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 810: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg5.blur_mode' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 810: reporter [apb_adapter] [reg2bus] addr = 10, data = 1, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000010, DATA=00000001 at 870
+UVM_INFO apb_adapter.sv(38) @ 870: reporter [apb_adapter] [bus2reg] addr = 10, data = 1, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 870: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg6.w1' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 870: reporter [apb_adapter] [reg2bus] addr = 14, data = 10000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000014, DATA=00010000 at 930
+UVM_INFO apb_adapter.sv(38) @ 930: reporter [apb_adapter] [bus2reg] addr = 14, data = 10000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 930: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg6.w2' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 930: reporter [apb_adapter] [reg2bus] addr = 14, data = 10200, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000014, DATA=00010200 at 990
+UVM_INFO apb_adapter.sv(38) @ 990: reporter [apb_adapter] [bus2reg] addr = 14, data = 10200, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 990: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg6.w3' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 990: reporter [apb_adapter] [reg2bus] addr = 14, data = 10201, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000014, DATA=00010201 at 1050
+UVM_INFO apb_adapter.sv(38) @ 1050: reporter [apb_adapter] [bus2reg] addr = 14, data = 10201, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1050: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg7.w4' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1050: reporter [apb_adapter] [reg2bus] addr = 18, data = 20000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000018, DATA=00020000 at 1110
+UVM_INFO apb_adapter.sv(38) @ 1110: reporter [apb_adapter] [bus2reg] addr = 18, data = 20000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1110: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg7.w5' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1110: reporter [apb_adapter] [reg2bus] addr = 18, data = 20400, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000018, DATA=00020400 at 1170
+UVM_INFO apb_adapter.sv(38) @ 1170: reporter [apb_adapter] [bus2reg] addr = 18, data = 20400, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1170: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg7.w6' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1170: reporter [apb_adapter] [reg2bus] addr = 18, data = 20402, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=00000018, DATA=00020402 at 1230
+UVM_INFO apb_adapter.sv(38) @ 1230: reporter [apb_adapter] [bus2reg] addr = 18, data = 20402, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1230: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg8.w7' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1230: reporter [apb_adapter] [reg2bus] addr = 1c, data = 10000, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=0000001c, DATA=00010000 at 1290
+UVM_INFO apb_adapter.sv(38) @ 1290: reporter [apb_adapter] [bus2reg] addr = 1c, data = 10000, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1290: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg8.w8' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1290: reporter [apb_adapter] [reg2bus] addr = 1c, data = 10200, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=0000001c, DATA=00010200 at 1350
+UVM_INFO apb_adapter.sv(38) @ 1350: reporter [apb_adapter] [bus2reg] addr = 1c, data = 10200, kind = UVM_WRITE, status = UVM_IS_OK
+UVM_WARNING /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/reg/uvm_reg_field.svh(1804) @ 1350: reporter [RegModel] Target bus does not support byte enabling, and the field 'm_reg_block.my_reg8.w9' is not the only field within the entire bus width. Individual field access will not be available. Accessing complete register instead.
+UVM_INFO apb_adapter.sv(22) @ 1350: reporter [apb_adapter] [reg2bus] addr = 1c, data = 10201, kind = UVM_WRITE
+[SFR_CHECKER] APB auto-capture: ADDR=0000001c, DATA=00010201 at 1410
+UVM_INFO apb_adapter.sv(38) @ 1410: reporter [apb_adapter] [bus2reg] addr = 1c, data = 10201, kind = UVM_WRITE, status = UVM_IS_OK
+End sfr setting..
+UVM_INFO hw_vseq_lib.sv(147) @ 1410: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] FRAME Sequence Started..
+[SFR_CHECKER] SFR values captured on vsync at 1450
+  Video timing: VSW=0001, VBP=0001, VACT=000a, VFP=0001
+  Horiz timing: HSW=0005, HBP=0005, HACT=000a, HFP=0005
+  Modes: WR=0, MIR=0, BLUR=1
+  Weights: W1=1, W2=2, W3=1, W4=2, W5=4
+  Weights: W6=2, W7=1, W8=2, W9=1
+                1490 [AW_VIDEO_SYNC] Video sync checker assertions enabled
+UVM_INFO hw_seq_lib.sv(82) @ 1610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 1610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 2110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 2110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 2610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 2610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 3110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 3110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 3610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 3610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 4110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 4110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 4610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 4610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 5110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 5110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 5610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 5610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 6110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 6110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 6610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 6610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 7110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 7110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 7610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 7610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+                7930 [AW_VIDEO_SYNC] Frame transition detected - waiving assertions
+[SFR_CHECKER] SFR values captured on vsync at 7950
+  Video timing: VSW=0001, VBP=0001, VACT=000a, VFP=0001
+  Horiz timing: HSW=0005, HBP=0005, HACT=000a, HFP=0005
+  Modes: WR=0, MIR=0, BLUR=1
+  Weights: W1=1, W2=2, W3=1, W4=2, W5=4
+  Weights: W6=2, W7=1, W8=2, W9=1
+UVM_INFO hw_seq_lib.sv(82) @ 8110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 8110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+                8430 [AW_VIDEO_SYNC] Frame transition waiver completed
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          0] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          1] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          2] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [          3] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [          4] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [          5] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [          6] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          7] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 137 [          8] OUT = 137
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [          9] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         10] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         11] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         12] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [         13] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         14] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         15] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         16] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         17] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         18] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [         19] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 130 [         20] OUT = 130
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 130 [         21] OUT = 130
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         22] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         23] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         24] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         25] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         26] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         27] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         28] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         29] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         30] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         31] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         32] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [         33] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [         34] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 137 [         35] OUT = 137
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         36] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         37] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         38] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         39] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         40] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         41] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         42] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         43] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         44] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         45] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         46] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         47] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 139 [         48] OUT = 139
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         49] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         50] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         51] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 129 [         52] OUT = 129
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 126 [         53] OUT = 126
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 122 [         54] OUT = 122
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 118 [         55] OUT = 118
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 114 [         56] OUT = 114
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 113 [         57] OUT = 113
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 112 [         58] OUT = 112
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 111 [         59] OUT = 111
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  99 [         60] OUT =  99
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  98 [         61] OUT =  98
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  95 [         62] OUT =  95
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  90 [         63] OUT =  90
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  85 [         64] OUT =  85
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  82 [         65] OUT =  82
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  80 [         66] OUT =  80
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         67] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         68] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         69] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         70] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         71] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         72] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         73] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  71 [         74] OUT =  71
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         75] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         76] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  70 [         77] OUT =  70
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  70 [         78] OUT =  70
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  71 [         79] OUT =  71
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         80] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         81] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         82] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  73 [         83] OUT =  73
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         84] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         85] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         86] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         87] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         88] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         89] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         90] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         91] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         92] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         93] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         94] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         95] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         96] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         97] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         98] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 8490: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         99] OUT =  77
+UVM_INFO hw_seq_lib.sv(82) @ 8610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 8610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 9110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 9110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 9610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 9610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 10110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 10110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 10610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 10610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 11110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 11110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 11610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 11610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 12110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 12110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 12610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 12610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 13110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 13110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 13610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 13610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 14110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 14110: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_seq_lib.sv(82) @ 14610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] IMAGE DATA LOAD START
+UVM_INFO hw_seq_lib.sv(107) @ 14610: uvm_test_top.tb.vseqr@@hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load [uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load] Video data load done
+UVM_INFO hw_vseq_lib.sv(150) @ 14910: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] FRAME Sequence ended..
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          0] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          1] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          2] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [          3] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [          4] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [          5] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [          6] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [          7] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 137 [          8] OUT = 137
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [          9] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         10] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         11] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         12] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [         13] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         14] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         15] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         16] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         17] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         18] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [         19] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 130 [         20] OUT = 130
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 130 [         21] OUT = 130
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         22] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         23] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         24] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         25] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         26] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         27] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         28] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 134 [         29] OUT = 134
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         30] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         31] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 133 [         32] OUT = 133
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 135 [         33] OUT = 135
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 136 [         34] OUT = 136
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 137 [         35] OUT = 137
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         36] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         37] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         38] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         39] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         40] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         41] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         42] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         43] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         44] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 141 [         45] OUT = 141
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         46] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 140 [         47] OUT = 140
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 139 [         48] OUT = 139
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 138 [         49] OUT = 138
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 132 [         50] OUT = 132
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 131 [         51] OUT = 131
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 129 [         52] OUT = 129
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 126 [         53] OUT = 126
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 122 [         54] OUT = 122
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 118 [         55] OUT = 118
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 114 [         56] OUT = 114
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 113 [         57] OUT = 113
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 112 [         58] OUT = 112
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF = 111 [         59] OUT = 111
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  99 [         60] OUT =  99
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  98 [         61] OUT =  98
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  95 [         62] OUT =  95
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  90 [         63] OUT =  90
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  85 [         64] OUT =  85
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  82 [         65] OUT =  82
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  80 [         66] OUT =  80
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         67] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         68] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         69] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         70] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         71] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         72] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         73] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  71 [         74] OUT =  71
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         75] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  72 [         76] OUT =  72
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  70 [         77] OUT =  70
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  70 [         78] OUT =  70
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  71 [         79] OUT =  71
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         80] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         81] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         82] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  73 [         83] OUT =  73
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  74 [         84] OUT =  74
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         85] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         86] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         87] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         88] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         89] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         90] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         91] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  76 [         92] OUT =  76
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         93] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  75 [         94] OUT =  75
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         95] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         96] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  78 [         97] OUT =  78
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         98] OUT =  77
+UVM_INFO hw_sb.sv(103) @ 14990: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] DATA MATCH REF =  77 [         99] OUT =  77
+UVM_INFO hw_vseq_lib.sv(174) @ 16910: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] Finish Test
+UVM_INFO hw_seq_lib.sv(34) @ 16910: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] Drop objection
+UVM_INFO hw_vseq_lib.sv(180) @ 16910: uvm_test_top.tb.vseqr@@hw_basic_vseq_c [hw_basic_vseq_c] post_body() starts..
+UVM_INFO /xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_objection.svh(1268) @ 16910: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+UVM_INFO hw_sb.sv(114) @ 16910: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] ###COMPARE RESULT###
+UVM_INFO hw_sb.sv(115) @ 16910: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] MATCH COUNT = 200
+UVM_INFO hw_sb.sv(116) @ 16910: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] MISMATCH COUNT = 0
+UVM_INFO hw_sb.sv(117) @ 16910: uvm_test_top.tb.hw_env.hw_sb [hw_sb_c] ####################
+
+--- UVM Report Summary ---
+
+** Report counts by severity
+UVM_INFO :  353
+UVM_WARNING :   20
+UVM_ERROR :    0
+UVM_FATAL :    0
+** Report counts by id
+[RNTST]     1
+[RegModel]    20
+[TEST_DONE]     1
+[UVMTOP]     1
+[apb_adapter]    40
+[hw_agent_c]     2
+[hw_basic_test_c]     2
+[hw_basic_vseq_c]    10
+[hw_driver_c]     2
+[hw_env_c]     1
+[hw_monitor_c]     1
+[hw_sb_c]   204
+[hw_seq_item_c]    29
+[hw_sequencer_c]     1
+[tb_c]     2
+[uvm_test_top.tb]     1
+[uvm_test_top.tb.vseqr.hw_basic_vseq_c.hm_video_manual_seq_c.hm_video_bline_seq_c.hm_video_hact_seq_c.video_load]    54
+[vseqr_c]     1
+Simulation complete via $finish(1) at time 16910 NS + 51
+/xcelium23.09/tools/methodology/UVM/CDNS-1.1d/sv/src/base/uvm_root.svh:457     $finish;
+xcelium> exit
+TOOL:	xrun	23.09-s001: Exiting on Aug 27, 2025 at 22:19:40 EDT  (total: 00:00:11)

@@ -1,0 +1,24 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-loadpli
+/xcelium23.09/tools//methodology/UVM/CDNS-1.1d/sv/lib/libuvmpli.so:uvm_pli_boot
+-UNBUFFERED
+-timescale
+1ns/1ns
+-ACCESS
++rw
+-no_analogsolver
+-loadrun
+./xcelium.d/run.lnx86.23.09.d/librun
+-XLMODE
+./xcelium.d/run.lnx86.23.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx86.23.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx86.23.09.d/hdl.var
+-WORK
+worklib
+-HASXLMODE

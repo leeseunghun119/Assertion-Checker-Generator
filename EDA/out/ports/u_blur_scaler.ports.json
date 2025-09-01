@@ -1,0 +1,115 @@
+{
+  "top_path": "dut",
+  "module": "blur_scaler",
+  "instance": "u_blur_scaler",
+  "path": "u_blur_scaler",
+  "inputs": [
+    {
+      "name": "I_CLK",
+      "width": ""
+    },
+    {
+      "name": "I_RSTN",
+      "width": ""
+    },
+    {
+      "name": "i_blur_mode_cap",
+      "width": ""
+    },
+    {
+      "name": "i_den",
+      "width": ""
+    },
+    {
+      "name": "i_hor_cnt",
+      "width": "[PARAM_WIDTH-1:0]"
+    },
+    {
+      "name": "i_hsync",
+      "width": ""
+    },
+    {
+      "name": "i_mirror_mode_cap",
+      "width": ""
+    },
+    {
+      "name": "i_sram_rd1",
+      "width": "[DATA_WIDTH-1:0]"
+    },
+    {
+      "name": "i_sram_rd2",
+      "width": "[DATA_WIDTH-1:0]"
+    },
+    {
+      "name": "i_sram_rd3",
+      "width": "[DATA_WIDTH-1:0]"
+    },
+    {
+      "name": "i_vact_state",
+      "width": "[PARAM_WIDTH-1:0]"
+    },
+    {
+      "name": "i_vsync",
+      "width": ""
+    },
+    {
+      "name": "i_w1_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w2_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w3_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w4_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w5_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w6_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w7_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w8_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_w9_cap",
+      "width": "[WEIGHT_WIDTH-1:0]"
+    },
+    {
+      "name": "i_weight_wr_mode_cap",
+      "width": ""
+    }
+  ],
+  "outputs": [
+    {
+      "name": "o_data",
+      "width": "[DATA_WIDTH-1:0]"
+    },
+    {
+      "name": "o_den",
+      "width": ""
+    },
+    {
+      "name": "o_hsync",
+      "width": ""
+    },
+    {
+      "name": "o_vsync",
+      "width": ""
+    }
+  ],
+  "inouts": []
+}

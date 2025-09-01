@@ -1,0 +1,32 @@
+# grouped JSON schema:
+# { top_path, module, instance, path, inputs:[{name,width}], outputs:[{name,width}], inouts:[{name,width}] }
+# top_path=dut
+# module=blur_scaler, instance=u_blur_scaler, path=u_blur_scaler
+[inputs]
+I_CLK,
+I_RSTN,
+i_blur_mode_cap,
+i_den,
+i_hor_cnt,[PARAM_WIDTH-1:0]
+i_hsync,
+i_mirror_mode_cap,
+i_sram_rd1,[DATA_WIDTH-1:0]
+i_sram_rd2,[DATA_WIDTH-1:0]
+i_sram_rd3,[DATA_WIDTH-1:0]
+i_vact_state,[PARAM_WIDTH-1:0]
+i_vsync,
+i_w1_cap,[WEIGHT_WIDTH-1:0]
+i_w2_cap,[WEIGHT_WIDTH-1:0]
+i_w3_cap,[WEIGHT_WIDTH-1:0]
+i_w4_cap,[WEIGHT_WIDTH-1:0]
+i_w5_cap,[WEIGHT_WIDTH-1:0]
+i_w6_cap,[WEIGHT_WIDTH-1:0]
+i_w7_cap,[WEIGHT_WIDTH-1:0]
+i_w8_cap,[WEIGHT_WIDTH-1:0]
+i_w9_cap,[WEIGHT_WIDTH-1:0]
+i_weight_wr_mode_cap,
+[outputs]
+o_data,[DATA_WIDTH-1:0]
+o_den,
+o_hsync,
+o_vsync,
