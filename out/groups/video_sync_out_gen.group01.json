@@ -7,16 +7,19 @@
   "instances": [
     "u_video_sync_out_gen"
   ],
-  "count": 1,
-  "inputs": [
+  "clocks": [
     {
       "name": "I_CLK",
       "width": ""
-    },
+    }
+  ],
+  "resets": [
     {
       "name": "I_RSTN",
       "width": ""
-    },
+    }
+  ],
+  "inputs": [
     {
       "name": "i_blur_mode_cap",
       "width": ""
@@ -81,17 +84,5 @@
     }
   ],
   "inouts": [],
-  "clocks": [
-    {
-      "name": "I_CLK",
-      "width": ""
-    }
-  ],
-  "resets": [
-    {
-      "name": "I_RSTN",
-      "width": ""
-    }
-  ],
   "parameters": []
 }

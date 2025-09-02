@@ -669,6 +669,18 @@ def classify_groups(ports: List[Dict[str, str]]) -> Dict[str, List[Dict[str, str
             params.append(item)
     return {"clocks": clocks, "resets": resets, "parameters": params}
 
+def make_exclusion_name_set(cls_groups: Dict[str, List[Dict[str, str]]]) -> set:
+    """
+    clocks/resets에 들어간 포트 이름을 집합으로 만들어,
+    inputs에서 중복을 제거하는 데 사용합니다.
+    """
+    names = set()
+    for it in cls_groups.get("clocks", []):
+        names.add(it["name"])
+    for it in cls_groups.get("resets", []):
+        names.add(it["name"])
+    return names
+
 def ports_bundle_for_module(modules: Dict[str, Any], target: str) -> Dict[str, Any]:
     m = modules[target]
     inputs, outputs, inouts = [], [], []
@@ -778,7 +790,30 @@ def sanitize_filename(s: str) -> str:
     s = s.lstrip("._")
     return s or "group"
 
+def make_exclusion_name_set(cls_groups: Dict[str, List[Dict[str, str]]]) -> set:
+    """
+    clocks/resets에 들어간 포트 이름을 집합으로 만들어,
+    inputs에서 중복을 제거하는 데 사용합니다.
+    """
+    names = set()
+    for it in cls_groups.get("clocks", []):
+        names.add(it["name"])
+    for it in cls_groups.get("resets", []):
+        names.add(it["name"])
+    return names
+
 def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str, Any]]):
+    """
+    - 대상 모듈(target)의 인스턴스 출현 경로(occs)를 보여주고,
+      사용자 선택(1부터, all/범위/공백 분리/혼합)을 받아
+      그룹별 JSON을 out/groups/<module>.groupNN.json 으로 저장.
+    - Top Path를 입력받아, 각 경로에서 공통 접두사 부분은 제거하고(paths에 상대 경로만 남김),
+      공통 접두사는 JSON의 top_path 필드에만 존재하도록 함.
+    - 인스턴스가 1개뿐이면 자동으로 1개 그룹을 생성.
+    - 빈 입력은 종료가 아닌 “다시 입력” 요청.
+    - JSON 키 순서: top_path, module, paths, instances, clocks, resets, inputs, outputs, inouts, parameters
+    - inputs에서 clock/reset 이름은 제거하여 중복 표시 방지.
+    """
     if not occs:
         print("대상 모듈의 인스턴스를 찾지 못하였습니다.")
         return
@@ -789,42 +824,52 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
         print(f"[{idx}] {o['path']}  (inst={o['instance']})")
     print("==== 인스턴스 목록 끝 ====")
 
+    # Top Path 입력(예: 인스턴스 체인만 사용하는 것을 권장)
     print("위의 하이어라키 경로 앞에 붙일 Top Path를 입력하여 주십시오. 예: dut.blk_a")
     print("공란으로 두시면 입력하지 않은 것으로 처리합니다.")
     raw_top_path = input("Top Path > ").strip()
     topset = set(find_top_modules(modules))
     top_path_value = normalize_top_path_for_instances(raw_top_path, modules, topset)
 
+    # 이름 기반 분류(Clock/Reset/Parameter)는 한 번만 계산
     cls = classify_groups(modules[target]["ports"])
+    ex_names = make_exclusion_name_set(cls)
 
     available = set(range(1, len(occs) + 1))
     group_idx = 1
     outdir = Path("out/groups").resolve()
     outdir.mkdir(parents=True, exist_ok=True)
 
-    # 1개면 자동
+    # 인스턴스가 1개면 자동 진행
     if len(occs) == 1:
         env = compute_env_for_occurrence(occs[0], modules, GLOBAL_DEFINES)
         ports_resolved = resolve_ports_with_params(modules, target, env)
+
+        # inputs에서 clock/reset 제외
+        ports_resolved["inputs"] = [it for it in ports_resolved["inputs"] if it["name"] not in ex_names]
+
         selected_paths = [trim_path_by_top(occs[0]["path"], top_path_value)]
+        selected_instances = [occs[0]["instance"]]
+
         obj = {
             "top_path": top_path_value,
             "module": target,
             "paths": selected_paths,
-            "instances": [occs[0]["instance"]],
-            "count": 1,
+            "instances": selected_instances,
+            "clocks": cls["clocks"],
+            "resets": cls["resets"],
             "inputs": ports_resolved["inputs"],
             "outputs": ports_resolved["outputs"],
             "inouts": ports_resolved["inouts"],
-            "clocks": cls["clocks"],
-            "resets": cls["resets"],
             "parameters": cls["parameters"]
         }
+
         fname = f"{sanitize_filename(target)}.group{group_idx:02d}.json"
         save_json(obj, outdir / fname)
         print(f"그룹 JSON이 저장되었습니다: {outdir/fname}")
         return
 
+    # 2개 이상인 경우 선택 루프
     while available:
         print("\n==== 선택 방법 안내 ====")
         print("all | 1-4 | 1 2 3 4 | 1-3,5,7-9")
@@ -839,8 +884,9 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
             print("선택된 항목이 없습니다. 올바른 형식으로 다시 입력하여 주십시오.")
             continue
 
-        # 각 occurrence 별 env 계산
+        # 각 occurrence 별 env 계산 (체인 기반)
         envs = [compute_env_for_occurrence(occs[i-1], modules, GLOBAL_DEFINES) for i in picked]
+
         # 한 묶음 안에서는 env 동일성 보장(폭이 뒤섞이는 것 방지)
         def env_key(e): return json.dumps(e, sort_keys=True)
         ref = env_key(envs[0])
@@ -848,21 +894,27 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
             print("선택하신 항목들 사이에 파라미터 오버라이드/기본값이 서로 다릅니다. 동일 파라미터끼리 묶어 다시 선택하여 주십시오.")
             continue
 
+        # 포트 폭 숫자화
         ports_resolved = resolve_ports_with_params(modules, target, envs[0])
+
+        # inputs에서 clock/reset 제외
+        ports_resolved["inputs"] = [it for it in ports_resolved["inputs"] if it["name"] not in ex_names]
+
+        # 경로/인스턴스 선택 (Top Path 접두사는 잘라서 상대경로로 저장)
         selected_paths = [trim_path_by_top(occs[i-1]["path"], top_path_value) for i in picked]
         selected_instances = [occs[i-1]["instance"] for i in picked]
 
+        # JSON 키 삽입 순서: top_path, module, paths, instances, clocks, resets, inputs, outputs, inouts, parameters
         obj = {
             "top_path": top_path_value,
             "module": target,
             "paths": selected_paths,
             "instances": selected_instances,
-            "count": len(selected_paths),
+            "clocks": cls["clocks"],
+            "resets": cls["resets"],
             "inputs": ports_resolved["inputs"],
             "outputs": ports_resolved["outputs"],
             "inouts": ports_resolved["inouts"],
-            "clocks": cls["clocks"],
-            "resets": cls["resets"],
             "parameters": cls["parameters"]
         }
 
@@ -870,6 +922,7 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
         save_json(obj, outdir / fname)
         print(f"그룹 JSON이 저장되었습니다: {outdir/fname}")
 
+        # 선택 항목 제거 및 다음 묶음 진행
         for i in picked:
             available.discard(i)
         group_idx += 1
@@ -884,7 +937,9 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
 # -----------------------------
 def main():
     # Logging (English)
-    logdir = Path("logs"); logdir.mkdir(parents=True, exist_ok=True)
+    # Use a writable directory for logs (e.g., user's home directory)
+    logdir = Path.home() / "rtl_logs"
+    logdir.mkdir(parents=True, exist_ok=True)
     logfile = logdir / "rtl_nav.log"
     logging.basicConfig(
         level=logging.INFO,
