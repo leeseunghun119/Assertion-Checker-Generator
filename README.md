@@ -1,10 +1,14 @@
 # Assertion-Checker-Generator
 [Harman] Assertion Checker Generator
 
-1. RTL Auto Parsing & Excel Editing
+RTL Auto Parsing & Excel Editing
+-------------------------
+
 <img width="1118" height="326" alt="Image" src="https://github.com/user-attachments/assets/ea501a9a-45a3-43d9-93bc-8caf7922bd50" />
 <br>
+<div align=center>
 RTL Auto Parsing 실행 예시
+</div>
 
 <br><br>
 검증 대상이 될 RTL을 물리면 상위 폴더로 올라가면서 .v파일들을 탐색하고 계층 분석을 통해 검증될 Target Block의 Instanse 정보를 JSON으로 저장한다.
@@ -35,8 +39,10 @@ RTL Auto Parsing 실행 예시
 
 + `BIT_WIDTH 와 같은 local param이나 define되어있는 정보는 마찬가지로 목표 instance 내부와 외부에서 탐색하여 현재 설정된 값으로 대체하여 활용한다.
 + 또한, excel로 가져올 때는 bit가 총 몇 비트인지가 중요하기 때문에 [15:0] 같은 값은 16 bits 라고 간소화 하여 불러온다.
-<br><br>
-<img width="485" height="636" alt="Image" src="https://github.com/user-attachments/assets/f456ae8c-8279-4ce7-9314-1a4b70e52475" />
+
+<div align=center>
+<br><br> 
+<center> <img width="485" height="636" alt="Image" src="https://github.com/user-attachments/assets/f456ae8c-8279-4ce7-9314-1a4b70e52475" /> </center>
 <br>
 출력된 JSON파일
 <br> <br>
@@ -47,3 +53,4 @@ RTL Auto Parsing 실행 예시
 <br>
 최종 결과물
 <br><br>
+</div>
