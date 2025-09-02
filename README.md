@@ -41,7 +41,8 @@ RTL Auto Parsing 실행 예시
 출력된 JSON파일
 <br> <br>
 <img width="447" height="444" alt="Image" src="https://github.com/user-attachments/assets/6d71d4a5-e82d-4200-a6c1-98174c18a8ce" />
-<br>엑셀 출력 log<br>
+<br>엑셀 출력 log
+<br> <br>
 <img width="1447" height="515" alt="Image" src="https://github.com/user-attachments/assets/7d286dc7-58b5-451a-8483-86d5abdc341c" />
 <br>
 최종 결과물
