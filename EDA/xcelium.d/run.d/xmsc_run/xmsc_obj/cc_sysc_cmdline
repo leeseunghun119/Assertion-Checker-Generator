@@ -1,0 +1,8 @@
+ 
+-DNCSC
+-DXMSC
+-D_GLIBCXX_USE_CXX11_ABI=1 -c
+-I/xcelium23.09/tools/inca/include
+-I/xcelium23.09/tools/include
+-pipe
+-x c -m32  -Wall 

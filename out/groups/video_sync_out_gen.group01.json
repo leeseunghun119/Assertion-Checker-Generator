@@ -1,0 +1,97 @@
+{
+  "top_path": "dut",
+  "module": "video_sync_out_gen",
+  "paths": [
+    "u_video_sync_out_gen"
+  ],
+  "instances": [
+    "u_video_sync_out_gen"
+  ],
+  "count": 1,
+  "inputs": [
+    {
+      "name": "I_CLK",
+      "width": ""
+    },
+    {
+      "name": "I_RSTN",
+      "width": ""
+    },
+    {
+      "name": "i_blur_mode_cap",
+      "width": ""
+    },
+    {
+      "name": "i_hact_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_hbp_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_hfp_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_hsw_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_htotal",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_mirror_mode_cap",
+      "width": ""
+    },
+    {
+      "name": "i_vact_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_vbp_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_vfp_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_vsw_cap",
+      "width": "[15:0]"
+    },
+    {
+      "name": "i_vsync_sync",
+      "width": ""
+    },
+    {
+      "name": "i_vtotal",
+      "width": "[15:0]"
+    }
+  ],
+  "outputs": [
+    {
+      "name": "o_hsync",
+      "width": ""
+    },
+    {
+      "name": "o_vsync",
+      "width": ""
+    }
+  ],
+  "inouts": [],
+  "clocks": [
+    {
+      "name": "I_CLK",
+      "width": ""
+    }
+  ],
+  "resets": [
+    {
+      "name": "I_RSTN",
+      "width": ""
+    }
+  ],
+  "parameters": []
+}

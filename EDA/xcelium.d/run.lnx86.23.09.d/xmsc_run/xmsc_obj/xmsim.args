@@ -1,0 +1,4 @@
+-nocopyright
+-unbuffered
+-cdslib /home/runner/./xcelium.d/run.lnx86.23.09.d/cdsrun.lib
+-hdlvar /home/runner/./xcelium.d/run.lnx86.23.09.d/hdlrun.var

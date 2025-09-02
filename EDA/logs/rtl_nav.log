@@ -1,0 +1,20 @@
+2025-08-28 11:22:03,016 [INFO] rtl_nav_nopp: ==== RTL Navigator (no-preproc) started ====
+2025-08-28 11:26:32,757 [INFO] rtl_nav_nopp: Discovered files: 14
+2025-08-28 11:26:32,759 [INFO] rtl_nav_nopp: Start building modules DB from 14 files
+2025-08-28 11:26:32,779 [INFO] rtl_nav_nopp: Finished modules DB: 14 modules
+2025-08-28 12:31:29,432 [INFO] rtl_nav_nopp: Navigation started: top=LINE_CTRL
+2025-08-28 12:31:47,175 [INFO] rtl_nav_nopp: User requested quit
+2025-08-28 12:31:47,176 [INFO] rtl_nav_nopp: ==== RTL Navigator finished ====
+2025-08-28 12:31:49,206 [INFO] rtl_nav_nopp: ==== RTL Navigator (no-preproc) started ====
+2025-08-28 12:31:53,986 [ERROR] rtl_nav_nopp: Invalid directory: C:\Users\JunsChoi\OneDrive - HARMAN\문서\[TF] TF자료\Assertion TF\Assertion Script\EDA\dut
+2025-08-28 12:31:59,422 [INFO] rtl_nav_nopp: ==== RTL Navigator (no-preproc) started ====
+2025-08-28 12:32:10,545 [INFO] rtl_nav_nopp: Discovered files: 14
+2025-08-28 12:32:10,546 [INFO] rtl_nav_nopp: Start building modules DB from 14 files
+2025-08-28 12:32:10,575 [INFO] rtl_nav_nopp: Finished modules DB: 14 modules
+2025-08-28 12:32:13,259 [INFO] rtl_nav_nopp: Navigation started: top=IP_BLUR_SCALER_TOP
+2025-08-28 12:32:26,811 [INFO] rtl_nav_nopp: Step down: u_blur_scaler (blur_scaler)
+2025-08-28 12:32:52,685 [INFO] rtl_nav_nopp: Saved grouped JSON ports: C:\Users\JunsChoi\OneDrive - HARMAN\문서\[TF] TF자료\Assertion TF\Assertion Script\EDA\out\ports\u_blur_scaler.ports.json
+2025-08-28 12:32:52,690 [INFO] rtl_nav_nopp: Saved flat JSON ports: C:\Users\JunsChoi\OneDrive - HARMAN\문서\[TF] TF자료\Assertion TF\Assertion Script\EDA\out\ports\u_blur_scaler.ports.flat.json
+2025-08-28 12:32:52,699 [INFO] rtl_nav_nopp: Saved TXT ports: C:\Users\JunsChoi\OneDrive - HARMAN\문서\[TF] TF자료\Assertion TF\Assertion Script\EDA\out\ports\u_blur_scaler.ports.txt
+2025-08-28 12:39:35,145 [INFO] rtl_nav_nopp: User requested quit
+2025-08-28 12:39:35,146 [INFO] rtl_nav_nopp: ==== RTL Navigator finished ====

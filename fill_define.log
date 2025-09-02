@@ -1,0 +1,90 @@
+[19:24:54] INFO: 작업 시작 (총 22 단계)
+[19:24:54] DEBUG: Base 채움: Target Name -> video_sync_out_gen
+[19:24:54] DEBUG: Base 채움: Target Path -> u_video_sync_out_gen
+[19:24:54] DEBUG: Base 채움: Base Clock -> I_CLK
+[19:24:54] DEBUG: Base 채움: Base Reset -> I_RSTN
+[19:24:54] DEBUG: Input 추가: I_CLK (1)
+[19:24:54] DEBUG: Input 추가: I_RSTN (1)
+[19:24:54] DEBUG: Input 추가: i_blur_mode_cap (1)
+[19:24:54] DEBUG: Input 추가: i_hact_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_hbp_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_hfp_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_hsw_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_htotal ([15:0])
+[19:24:54] DEBUG: Input 추가: i_mirror_mode_cap (1)
+[19:24:54] DEBUG: Input 추가: i_vact_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_vbp_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_vfp_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_vsw_cap ([15:0])
+[19:24:54] DEBUG: Input 추가: i_vsync_sync (1)
+[19:24:54] DEBUG: Input 추가: i_vtotal ([15:0])
+[19:24:54] DEBUG: Output 추가: o_hsync (1)
+[19:24:54] DEBUG: Output 추가: o_vsync (1)
+[19:24:54] DEBUG: 저장 완료: .\define.xlsx
+[19:24:54] INFO: 모든 작업 완료
+[19:36:23] INFO: 작업 시작 (총 24 단계)
+[19:36:23] INFO: 백업 생성: define_backup_20250901_193623.xlsx
+[19:36:23] DEBUG: 기존 값 클리어(서식 유지)
+[19:36:23] DEBUG: Base 채움: Target Name -> video_sync_out_gen
+[19:36:23] DEBUG: Base 채움: Target Path -> dut.u_video_sync_out_gen
+[19:36:23] DEBUG: Base 채움: Base Clock -> I_CLK
+[19:36:23] DEBUG: Base 채움: Base Reset -> I_RSTN
+[19:36:32] INFO: 작업 시작 (총 24 단계)
+[19:36:32] INFO: 백업 생성: define_backup_20250901_193632.xlsx
+[19:36:32] DEBUG: 기존 값 클리어(서식 유지)
+[19:36:32] DEBUG: Base 채움: Target Name -> video_sync_out_gen
+[19:36:32] DEBUG: Base 채움: Target Path -> dut.u_video_sync_out_gen
+[19:36:32] DEBUG: Base 채움: Base Clock -> I_CLK
+[19:36:32] DEBUG: Base 채움: Base Reset -> I_RSTN
+[19:40:08] INFO: 작업 시작 (총 24 단계)
+[19:40:08] INFO: 백업 생성: define_backup_20250901_194008.xlsx
+[19:40:08] DEBUG: 기존 값 클리어(서식 유지)
+[19:40:08] DEBUG: Base 채움: Target Name -> video_sync_out_gen
+[19:40:08] DEBUG: Base 채움: Target Path -> dut.u_video_sync_out_gen
+[19:40:08] DEBUG: Base 채움: Base Clock -> I_CLK
+[19:40:08] DEBUG: Base 채움: Base Reset -> I_RSTN
+[19:40:08] DEBUG: Input 추가: I_CLK (1)
+[19:40:08] DEBUG: Input 추가: I_RSTN (1)
+[19:40:08] DEBUG: Input 추가: i_blur_mode_cap (1)
+[19:40:08] DEBUG: Input 추가: i_hact_cap (16)
+[19:40:08] DEBUG: Input 추가: i_hbp_cap (16)
+[19:40:08] DEBUG: Input 추가: i_hfp_cap (16)
+[19:40:08] DEBUG: Input 추가: i_hsw_cap (16)
+[19:40:08] DEBUG: Input 추가: i_htotal (16)
+[19:40:08] DEBUG: Input 추가: i_mirror_mode_cap (1)
+[19:40:08] DEBUG: Input 추가: i_vact_cap (16)
+[19:40:08] DEBUG: Input 추가: i_vbp_cap (16)
+[19:40:08] DEBUG: Input 추가: i_vfp_cap (16)
+[19:40:08] DEBUG: Input 추가: i_vsw_cap (16)
+[19:40:08] DEBUG: Input 추가: i_vsync_sync (1)
+[19:40:08] DEBUG: Input 추가: i_vtotal (16)
+[19:40:08] DEBUG: Output 추가: o_hsync (1)
+[19:40:08] DEBUG: Output 추가: o_vsync (1)
+[19:40:08] DEBUG: 저장 완료: .\define.xlsx
+[19:40:08] INFO: 모든 작업 완료
+[19:40:55] INFO: 작업 시작 (총 24 단계)
+[19:40:55] INFO: 백업 생성: define_backup_20250901_194055.xlsx
+[19:40:55] DEBUG: 기존 값 클리어(서식 유지)
+[19:40:55] DEBUG: Base 채움: Target Name -> video_sync_out_gen
+[19:40:55] DEBUG: Base 채움: Target Path -> dut.u_video_sync_out_gen
+[19:40:55] DEBUG: Base 채움: Base Clock -> I_CLK
+[19:40:55] DEBUG: Base 채움: Base Reset -> I_RSTN
+[19:40:55] DEBUG: Input 추가: I_CLK (1)
+[19:40:55] DEBUG: Input 추가: I_RSTN (1)
+[19:40:55] DEBUG: Input 추가: i_blur_mode_cap (1)
+[19:40:55] DEBUG: Input 추가: i_hact_cap (16)
+[19:40:55] DEBUG: Input 추가: i_hbp_cap (16)
+[19:40:55] DEBUG: Input 추가: i_hfp_cap (16)
+[19:40:55] DEBUG: Input 추가: i_hsw_cap (16)
+[19:40:55] DEBUG: Input 추가: i_htotal (16)
+[19:40:55] DEBUG: Input 추가: i_mirror_mode_cap (1)
+[19:40:55] DEBUG: Input 추가: i_vact_cap (16)
+[19:40:55] DEBUG: Input 추가: i_vbp_cap (16)
+[19:40:55] DEBUG: Input 추가: i_vfp_cap (16)
+[19:40:55] DEBUG: Input 추가: i_vsw_cap (16)
+[19:40:55] DEBUG: Input 추가: i_vsync_sync (1)
+[19:40:55] DEBUG: Input 추가: i_vtotal (16)
+[19:40:55] DEBUG: Output 추가: o_hsync (1)
+[19:40:55] DEBUG: Output 추가: o_vsync (1)
+[19:40:55] DEBUG: 저장 완료: .\define.xlsx
+[19:40:55] INFO: 모든 작업 완료
