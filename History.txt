@@ -7,3 +7,11 @@ Harman LSI DV4 이승훈
 
 ===============================
 
+----------------------------------------
+[2025-09-25 00:31:04 대한민국 표준시+0900]
+User: Junsik-Choi <jschoi5334@gmail.com> (GitHub: Junsik-Choi)
+Branch: main @ 299c59f - Add Assertion TF history and initial Excel file for tracking
+Progress: 0% -> 0% (+0%)
+Summary: Histry Update 기능 추가. Issue Tracking, Pregress Checking 용도로 활용할 것. 
+해당 Python 프로그램을 실행하면, Git Name과 Email을 불러와 입력한 History를 기록 및 Progress를 관리 가능
+
