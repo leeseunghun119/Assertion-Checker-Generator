@@ -814,9 +814,33 @@ def run_grouping_flow(modules: Dict[str, Any], target: str, occs: List[Dict[str,
     - JSON 키 순서: top_path, module, paths, instances, clocks, resets, inputs, outputs, inouts, parameters
     - inputs에서 clock/reset 이름은 제거하여 중복 표시 방지.
     """
+
     if not occs:
-        print("대상 모듈의 인스턴스를 찾지 못하였습니다.")
+        print("대상 모듈의 인스턴스를 찾지 못하였습니다. 최상위 모듈로 처리합니다.")
+        cls = classify_groups(modules[target]["ports"])
+        ex_names = make_exclusion_name_set(cls)
+        ports_resolved = ports_bundle_for_module(modules, target)
+        ports_resolved["inputs"] = [it for it in ports_resolved["inputs"] if it["name"] not in ex_names]
+
+        obj = {
+            "top_path": "",
+            "module": target,
+            "paths": [],
+            "instances": [],
+            "clocks": cls["clocks"],
+            "resets": cls["resets"],
+            "inputs": ports_resolved["inputs"],
+            "outputs": ports_resolved["outputs"],
+            "inouts": ports_resolved["inouts"],
+            "parameters": cls["parameters"]
+        }
+        outdir = Path("out/groups").resolve()
+        outdir.mkdir(parents=True, exist_ok=True)
+        fname = f"{sanitize_filename(target)}.group00.json"
+        save_json(obj, outdir / fname)
+        print(f"그룹 JSON이 저장되었습니다: {outdir/fname}")
         return
+
 
     print("대상 모듈 인스턴스 목록은 다음과 같습니다.")
     print("==== 인스턴스 목록 시작 ====")
